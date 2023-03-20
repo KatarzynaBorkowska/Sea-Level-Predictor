@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.stats import linregress
@@ -12,6 +13,11 @@ def draw_plot():
 
     # Create first line of best fit
 
+    line1 = linregress(data["Year"], data["CSIRO Adjusted Sea Level"])
+    x1 = np.arange(data["Year"].min(), 2050, 1)
+    y1 = x1*line1.slope + line1.intercept
+
+    plt.plot(x1, y1)
 
     # Create second line of best fit
 
